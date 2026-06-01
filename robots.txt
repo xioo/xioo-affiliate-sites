@@ -1,2 +1,5 @@
+# Entwurfsstand:
+# Die KlickTipp-Seiten sind noch nicht produktiv freigegeben.
+# Impressum, Datenschutz, Promolink, Claims und GitHub-Pages-Freigabe fehlen noch.
 User-agent: *
 Disallow: /
