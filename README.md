@@ -28,6 +28,12 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
       analytics.js
     img/
       README.md
+      social/
+        klicktipp-guides-social.png
+        follow-up-system-social.png
+        follow-up-checkliste-social.png
+        lead-magnet-social.png
+        webinar-follow-up-social.png
   rechtliches/
     impressum.html
     datenschutz.html
@@ -108,6 +114,19 @@ https://klicktipp.xioo.de/sitemap.xml
 ```
 
 Die zusätzlichen SEO-Einstiegsseiten führen intern auf die zentrale Follow-up-Seite und auf die übrigen Guides zurück. Die Website bleibt auf KlickTipp als Partnerprogramm verengt und wird nicht um andere Partnerprogramme erweitert.
+
+## Social Previews
+
+Die öffentlichen Guide-Seiten nutzen große Linkvorschauen für X und andere Open-Graph-Verbraucher.
+
+Regeln:
+
+1. `twitter:card` steht auf `summary_large_image`,
+2. jede inhaltliche Seite hat ein eigenes `og:image` und `twitter:image`,
+3. Bild-URLs sind absolute HTTPS-URLs unter `https://klicktipp.xioo.de/assets/img/social/`,
+4. Social-Bilder haben 1200 x 630 Pixel,
+5. die Sitemap enthält Bildverweise für die fünf inhaltlichen Seiten,
+6. keine KlickTipp-Logos, Account-Screenshots oder privaten Werbemittel als Linkbild verwenden.
 
 ## Google Search Console
 
