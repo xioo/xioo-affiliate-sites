@@ -25,6 +25,7 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
   rechtliches/
     impressum.html
     datenschutz.html
+  CNAME
   robots.txt
 ```
 
@@ -38,7 +39,7 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
 6. Nicht den Eindruck erwecken, xioo® sei offizieller KlickTipp-Support.
 7. Keine weiteren Partnerprogramme in diesem Repository ergänzen.
 8. Unbekannte öffentliche Daten nur als klar erkennbare Platzhalter eintragen.
-9. Cloudflare Web Analytics nur mit bewusst gesetztem Site-Token aktivieren.
+9. GoatCounter nur über den zentralen Analytics-Loader einbinden.
 
 ## Design-Richtung
 
@@ -54,24 +55,38 @@ Die Gestaltung ist an moderne Enterprise-Websites und Rasterprinzipien angelehnt
 
 ## Messung
 
-Die Seiten sind für Cloudflare Web Analytics vorbereitet.
+Die Seiten nutzen GoatCounter für einfache Traffic-Messung.
 
-Aktueller Platzhalter:
+Aktueller Endpoint:
 
 ```html
-<meta name="xioo-cloudflare-web-analytics-token" content="CLOUDFLARE_WEB_ANALYTICS_TOKEN">
+<meta name="xioo-goatcounter-endpoint" content="https://xioo.goatcounter.com/count">
 ```
 
-Solange dieser Platzhalter in den Seiten steht, lädt `assets/js/analytics.js` kein Cloudflare-Beacon. Nach dem Anlegen einer Website in Cloudflare Web Analytics wird nur der Platzhalter durch den echten Site-Token ersetzt.
+`assets/js/analytics.js` lädt darüber das GoatCounter-Skript von `https://gc.zgo.at/count.js`.
 
-Cloudflare Web Analytics misst Seitenaufrufe, Referrer und technische Leistungswerte. Query-Strings werden nach Cloudflare-Dokumentation derzeit nicht als auswertbare Pfade protokolliert. Deshalb werden einzelne X-Posts nicht allein über `?utm_content=post_01` getrennt ausgewertet.
+GoatCounter misst Seitenaufrufe, Referrer, Pfade und Kampagnenauswertungen. Der Dienst wird genutzt, weil Cloudflare Web Analytics die Hostnames `xioo.github.io` und `klicktipp.xioo.de` im Cloudflare-Konto nicht akzeptiert hat.
 
 Praktische Messlogik für den ersten KlickTipp-Test:
 
-1. Cloudflare Web Analytics für Seitenaufrufe und Referrer,
+1. GoatCounter für Seitenaufrufe und Referrer,
 2. X für Reichweite, Antworten und Interaktionen,
 3. Digistore24 für Verkäufe und Provisionen,
 4. bei Bedarf eigene Kampagnenpfade statt reiner UTM-Parameter.
+
+## Custom Domain
+
+GitHub Pages ist zusätzlich über diese Subdomain angebunden:
+
+```text
+klicktipp.xioo.de
+```
+
+Die DNS-Auflösung erfolgt bei IONOS über CNAME:
+
+```text
+klicktipp.xioo.de -> xioo.github.io
+```
 
 ## GitHub Pages
 
