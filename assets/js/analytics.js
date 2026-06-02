@@ -1,15 +1,14 @@
 (() => {
-  const placeholderToken = "CLOUDFLARE_WEB_ANALYTICS_TOKEN";
-  const tokenMeta = document.querySelector('meta[name="xioo-cloudflare-web-analytics-token"]');
-  const token = tokenMeta ? tokenMeta.content.trim() : "";
+  const endpointMeta = document.querySelector('meta[name="xioo-goatcounter-endpoint"]');
+  const endpoint = endpointMeta ? endpointMeta.content.trim() : "";
 
-  if (!token || token === placeholderToken) {
+  if (!endpoint) {
     return;
   }
 
-  const beaconScript = document.createElement("script");
-  beaconScript.defer = true;
-  beaconScript.src = "https://static.cloudflareinsights.com/beacon.min.js";
-  beaconScript.dataset.cfBeacon = JSON.stringify({ token });
-  document.head.appendChild(beaconScript);
+  const goatCounterScript = document.createElement("script");
+  goatCounterScript.async = true;
+  goatCounterScript.src = "https://gc.zgo.at/count.js";
+  goatCounterScript.dataset.goatcounter = endpoint;
+  document.head.appendChild(goatCounterScript);
 })();
