@@ -27,3 +27,7 @@ Regeln:
 2. Bild-URLs in HTML immer absolut mit `https://klicktipp.xioo.de/...` setzen,
 3. keine privaten Screenshots, keine Digistore24-Ansichten und keine KlickTipp-Logos verwenden,
 4. bei neuen Guide-Seiten eigenes Social-Preview-Bild, `og:image`, `twitter:image` und Sitemap-Bildverweis ergänzen.
+
+Aktuelle zusätzliche Vorschau:
+
+1. `assets/img/social/grundlagenkurs-social.png` für `https://klicktipp.xioo.de/grundlagenkurs/`.
