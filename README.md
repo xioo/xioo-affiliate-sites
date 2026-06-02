@@ -40,6 +40,11 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
   rechtliches/
     impressum.html
     datenschutz.html
+  partials/
+    header.html
+    footer.html
+  scripts/
+    sync-shared-layout.py
   CNAME
   google1d032a5e65392c5c.html
   robots.txt
@@ -59,6 +64,7 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
 9. GoatCounter nur über den zentralen Analytics-Loader einbinden.
 10. Kanonische Kampagnen-URL für den ersten Follow-up-Test ist `https://klicktipp.xioo.de/follow-up-prozess/`.
 11. Google-Search-Console-Verifikationsdateien bleiben im Root, solange die Property aktiv ist.
+12. Header und Footer werden über `partials/` gepflegt und mit `scripts/sync-shared-layout.py` statisch in alle HTML-Seiten geschrieben.
 
 ## Website- und Design-Richtung
 
@@ -82,6 +88,24 @@ Das Layout ist hochwertig, sachlich und rasterbasiert:
 6. kleine Affiliate-Offenlegung im Footer.
 
 Die Gestaltung ist an moderne Enterprise-Websites und Rasterprinzipien angelehnt, verwendet aber keine fremden Markenbestandteile.
+
+## Modulare Pflege
+
+Die Website bleibt bewusst statisch, damit GitHub Pages ohne Build-System funktioniert und Suchmaschinen Header, Navigation und Footer direkt im ausgelieferten HTML sehen.
+
+Zentrale Layout-Bausteine:
+
+1. `partials/header.html` für Markenbereich, Hauptnavigation und Header-CTA,
+2. `partials/footer.html` für Footer-Navigation, Rechtstexte und Affiliate-Hinweis,
+3. `scripts/sync-shared-layout.py` für die statische Synchronisierung in alle Seiten.
+
+Nach Änderungen an Header oder Footer wird ausgeführt:
+
+```bash
+python3 scripts/sync-shared-layout.py
+```
+
+Das Skript ersetzt die markierten Bereiche zwischen `xioo-shared-header` und `xioo-shared-footer`. Inhalte, Metadaten, SEO-Texte und Seitensektionen bleiben weiterhin direkt in den jeweiligen HTML-Dateien.
 
 ## Messung
 
