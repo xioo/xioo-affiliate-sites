@@ -152,8 +152,9 @@ a {
 
 .hero-grundlagenkurs {
   background-image:
-    linear-gradient(90deg, rgba(22, 22, 22, 0.92), rgba(22, 22, 22, 0.58), rgba(22, 22, 22, 0.14)),
-    url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80");
+    linear-gradient(90deg, rgba(22, 22, 22, 0.94), rgba(22, 22, 22, 0.68), rgba(22, 22, 22, 0.24)),
+    url("https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=85");
+  background-position: center;
 }
 
 .hero-checkliste {
@@ -349,6 +350,18 @@ h2 {
   padding-top: 10px;
   color: var(--gray-80);
   font-size: 0.9rem;
+}
+
+.page-grundlagenkurs .hero {
+  min-height: 68vh;
+}
+
+.page-grundlagenkurs .hero-copy {
+  width: min(820px, 100%);
+}
+
+.page-grundlagenkurs .media-block img {
+  aspect-ratio: 16 / 10;
 }
 
 .band-section {
