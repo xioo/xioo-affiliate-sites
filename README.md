@@ -1,6 +1,6 @@
 # xioo® KlickTipp Guides
 
-Öffentliche statische xioo® Seiten für problemorientierte KlickTipp-Guides.
+Öffentliche statische xioo® Website für KlickTipp-Guides zu Leadgenerierung, E-Mail-Marketing, Follow-up und CRM-naher Kontaktführung.
 
 ## Repository-Zweck
 
@@ -51,15 +51,26 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
 10. Kanonische Kampagnen-URL ist `https://klicktipp.xioo.de/follow-up-prozess/`.
 11. Google-Search-Console-Verifikationsdateien bleiben im Root, solange die Property aktiv ist.
 
-## Design-Richtung
+## Website- und Design-Richtung
 
-Das Layout ist sachlich und rasterbasiert:
+Die Seiten bilden eine zusammenhängende KlickTipp-Guide-Website, nicht einzelne isolierte Landingpages.
+
+Navigationsprinzip:
+
+1. alle öffentlichen Guide-Seiten sind über die obere Hauptnavigation erreichbar,
+2. jede Seite hat einen sichtbaren KlickTipp-CTA im Header,
+3. jede Seite verweist im Footer auf alle Guides und Rechtstexte,
+4. die Startseite bündelt die gesamte Guide-Struktur,
+5. Unterseiten bleiben thematisch fokussiert, führen aber in die Gesamtwebsite zurück.
+
+Das Layout ist hochwertig, sachlich und rasterbasiert:
 
 1. klare schwarze und weiße Flächen,
 2. dezente blaue Akzente,
-3. große, direkte Überschriften,
-4. wenige, stabile Inhaltsmodule,
-5. kleine Affiliate-Offenlegung im Footer.
+3. kompakte Sticky-Navigation mit Markenbereich und primärem CTA,
+4. große, direkte Überschriften,
+5. wenige, stabile Inhaltsmodule,
+6. kleine Affiliate-Offenlegung im Footer.
 
 Die Gestaltung ist an moderne Enterprise-Websites und Rasterprinzipien angelehnt, verwendet aber keine fremden Markenbestandteile.
 
@@ -96,7 +107,7 @@ Die Sitemap liegt unter:
 https://klicktipp.xioo.de/sitemap.xml
 ```
 
-Die zusätzlichen SEO-Einstiegsseiten führen intern auf die zentrale Follow-up-Landingpage zurück und erweitern den Suchraum ohne neue Produktlinie.
+Die zusätzlichen SEO-Einstiegsseiten führen intern auf die zentrale Follow-up-Seite und auf die übrigen Guides zurück. Die Website bleibt auf KlickTipp als Partnerprogramm verengt und wird nicht um andere Partnerprogramme erweitert.
 
 ## Google Search Console
 

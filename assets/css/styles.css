@@ -8,6 +8,7 @@
   --gray-10: #f4f4f4;
   --white: #ffffff;
   --blue: #0f62fe;
+  --blue-dark: #0043ce;
   --orange: #ff832b;
 }
 
@@ -35,38 +36,56 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  min-height: 56px;
+  gap: 28px;
+  min-height: 72px;
   padding: 0 32px;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.98);
   border-bottom: 1px solid var(--gray-20);
-  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(22, 22, 22, 0.04);
+  backdrop-filter: blur(14px);
 }
 
 .brand {
+  display: grid;
+  gap: 2px;
+  min-width: 148px;
   font-weight: 800;
-  font-size: 1.2rem;
   text-decoration: none;
+}
+
+.brand-mark {
+  font-size: 1.22rem;
+  line-height: 1;
+}
+
+.brand-subline {
+  color: var(--gray-80);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .main-nav {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 2px;
+  justify-content: center;
+  min-width: 0;
   font-size: 0.92rem;
 }
 
 .main-nav a,
-.footer-nav a {
+.footer-nav a,
+.header-cta {
   text-decoration: none;
 }
 
 .main-nav a {
-  padding: 17px 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 72px;
+  padding: 0 14px;
   color: var(--gray-100);
   border-bottom: 3px solid transparent;
 }
@@ -75,6 +94,34 @@ a {
 .main-nav a:focus {
   color: var(--black);
   border-bottom-color: var(--blue);
+  background: var(--gray-10);
+}
+
+.main-nav a[aria-current="page"] {
+  color: var(--black);
+  background: var(--gray-10);
+  border-bottom-color: var(--blue);
+  font-weight: 700;
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  color: var(--white);
+  background: var(--black);
+  border: 1px solid var(--black);
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.header-cta:hover,
+.header-cta:focus {
+  background: var(--blue);
+  border-color: var(--blue);
 }
 
 .hero {
@@ -184,8 +231,8 @@ h2 {
 
 .button:hover,
 .button:focus {
-  background: #0043ce;
-  border-color: #0043ce;
+  background: var(--blue-dark);
+  border-color: var(--blue-dark);
 }
 
 .button-ghost {
@@ -210,8 +257,8 @@ h2 {
 .button-outline:hover,
 .button-outline:focus {
   color: var(--white);
-  background: #0043ce;
-  border-color: #0043ce;
+  background: var(--blue-dark);
+  border-color: var(--blue-dark);
 }
 
 .status-strip {
@@ -449,10 +496,12 @@ h2 {
 }
 
 .footer-nav {
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px 18px;
   align-content: start;
-  min-width: 180px;
+  max-width: 620px;
 }
 
 .footer-nav a {
@@ -470,19 +519,26 @@ h2 {
 
 @media (max-width: 760px) {
   .site-header {
-    align-items: flex-start;
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 0;
-    padding: 12px 20px 0;
+    min-height: 0;
+    padding: 14px 20px 0;
   }
 
   .main-nav {
+    flex-wrap: wrap;
     justify-content: flex-start;
     width: 100%;
   }
 
   .main-nav a {
-    padding: 12px 12px 12px 0;
+    min-height: 40px;
+    padding: 0 10px;
+  }
+
+  .header-cta {
+    width: 100%;
+    margin: 10px 0 14px;
   }
 
   .hero {
@@ -521,6 +577,7 @@ h2 {
   }
 
   .footer-nav {
+    justify-content: flex-start;
     min-width: 0;
   }
 }
