@@ -13,6 +13,8 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
 ```text
 /
   index.html
+  grundlagenkurs/
+    index.html
   follow-up-prozess/
     index.html
   follow-up-checkliste/
@@ -30,6 +32,7 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
       README.md
       social/
         klicktipp-guides-social.png
+        grundlagenkurs-social.png
         follow-up-system-social.png
         follow-up-checkliste-social.png
         lead-magnet-social.png
@@ -54,7 +57,7 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
 7. Keine weiteren Partnerprogramme in diesem Repository ergänzen.
 8. Unbekannte öffentliche Daten nur als klar erkennbare Platzhalter eintragen.
 9. GoatCounter nur über den zentralen Analytics-Loader einbinden.
-10. Kanonische Kampagnen-URL ist `https://klicktipp.xioo.de/follow-up-prozess/`.
+10. Kanonische Kampagnen-URL für den ersten Follow-up-Test ist `https://klicktipp.xioo.de/follow-up-prozess/`.
 11. Google-Search-Console-Verifikationsdateien bleiben im Root, solange die Property aktiv ist.
 
 ## Website- und Design-Richtung
@@ -113,7 +116,23 @@ Die Sitemap liegt unter:
 https://klicktipp.xioo.de/sitemap.xml
 ```
 
-Die zusätzlichen SEO-Einstiegsseiten führen intern auf die zentrale Follow-up-Seite und auf die übrigen Guides zurück. Die Website bleibt auf KlickTipp als Partnerprogramm verengt und wird nicht um andere Partnerprogramme erweitert.
+Die zusätzlichen SEO-Einstiegsseiten führen intern auf die zentrale Follow-up-Seite, den Grundlagenkurs-Guide und die übrigen Guides zurück. Die Website bleibt auf KlickTipp als Partnerprogramm verengt und wird nicht um andere Partnerprogramme erweitert.
+
+## Grundlagenkurs-Seite
+
+Die Seite `grundlagenkurs/` bewirbt den KlickTipp Grundlagenkurs als Einstieg in einen strukturierten KlickTipp-Start.
+
+Die Seite adressiert vor allem drei Kundenprobleme:
+
+1. unklarer Start mit KlickTipp,
+2. technische und organisatorische Einrichtung als Bremse,
+3. Kontakte ohne E-Mail-Strecke, Leadmagnet, Sales-Funnel oder Vertrauensaufbau.
+
+Primärer Partnerlink:
+
+```text
+https://www.klicktipp.com/de/support/wissensdatenbank/grundlagenkurs/?a=226599
+```
 
 ## Social Previews
 
@@ -125,7 +144,7 @@ Regeln:
 2. jede inhaltliche Seite hat ein eigenes `og:image` und `twitter:image`,
 3. Bild-URLs sind absolute HTTPS-URLs unter `https://klicktipp.xioo.de/assets/img/social/`,
 4. Social-Bilder haben 1200 x 630 Pixel,
-5. die Sitemap enthält Bildverweise für die fünf inhaltlichen Seiten,
+5. die Sitemap enthält Bildverweise für die sechs inhaltlichen Seiten,
 6. keine KlickTipp-Logos, Account-Screenshots oder privaten Werbemittel als Linkbild verwenden.
 
 ## Google Search Console
