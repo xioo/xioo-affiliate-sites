@@ -32,6 +32,7 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
     impressum.html
     datenschutz.html
   CNAME
+  google1d032a5e65392c5c.html
   robots.txt
   sitemap.xml
 ```
@@ -48,6 +49,7 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
 8. Unbekannte öffentliche Daten nur als klar erkennbare Platzhalter eintragen.
 9. GoatCounter nur über den zentralen Analytics-Loader einbinden.
 10. Kanonische Kampagnen-URL ist `https://klicktipp.xioo.de/follow-up-prozess/`.
+11. Google-Search-Console-Verifikationsdateien bleiben im Root, solange die Property aktiv ist.
 
 ## Design-Richtung
 
@@ -95,6 +97,16 @@ https://klicktipp.xioo.de/sitemap.xml
 ```
 
 Die zusätzlichen SEO-Einstiegsseiten führen intern auf die zentrale Follow-up-Landingpage zurück und erweitern den Suchraum ohne neue Produktlinie.
+
+## Google Search Console
+
+Die HTML-Verifikation für die URL-Präfix-Property `https://klicktipp.xioo.de/` liegt im Root:
+
+```text
+https://klicktipp.xioo.de/google1d032a5e65392c5c.html
+```
+
+Die Property soll auf die Website-Start-URL zeigen, nicht auf die Sitemap-URL.
 
 ## Custom Domain
 
