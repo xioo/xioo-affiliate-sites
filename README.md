@@ -15,6 +15,12 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
   index.html
   follow-up-prozess/
     index.html
+  follow-up-checkliste/
+    index.html
+  lead-magnet-nachfassen/
+    index.html
+  webinar-follow-up/
+    index.html
   assets/
     css/
       styles.css
@@ -87,6 +93,8 @@ Die Sitemap liegt unter:
 ```text
 https://klicktipp.xioo.de/sitemap.xml
 ```
+
+Die zusätzlichen SEO-Einstiegsseiten führen intern auf die zentrale Follow-up-Landingpage zurück und erweitern den Suchraum ohne neue Produktlinie.
 
 ## Custom Domain
 
