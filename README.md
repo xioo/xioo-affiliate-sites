@@ -27,6 +27,7 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
     datenschutz.html
   CNAME
   robots.txt
+  sitemap.xml
 ```
 
 ## Regeln
@@ -40,6 +41,7 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
 7. Keine weiteren Partnerprogramme in diesem Repository ergänzen.
 8. Unbekannte öffentliche Daten nur als klar erkennbare Platzhalter eintragen.
 9. GoatCounter nur über den zentralen Analytics-Loader einbinden.
+10. Kanonische Kampagnen-URL ist `https://klicktipp.xioo.de/follow-up-prozess/`.
 
 ## Design-Richtung
 
@@ -73,6 +75,18 @@ Praktische Messlogik für den ersten KlickTipp-Test:
 2. X für Reichweite, Antworten und Interaktionen,
 3. Digistore24 für Verkäufe und Provisionen,
 4. bei Bedarf eigene Kampagnenpfade statt reiner UTM-Parameter.
+
+Für kostenlose Kampagnen werden zunächst UTM-Parameter auf der eigenen Landingpage genutzt, zum Beispiel:
+
+```text
+https://klicktipp.xioo.de/follow-up-prozess/?utm_source=x&utm_medium=social&utm_campaign=klicktipp_followup&utm_content=post_001
+```
+
+Die Sitemap liegt unter:
+
+```text
+https://klicktipp.xioo.de/sitemap.xml
+```
 
 ## Custom Domain
 
