@@ -76,7 +76,7 @@ Praktische Messlogik für den ersten KlickTipp-Test:
 
 ## Custom Domain
 
-GitHub Pages ist zusätzlich über diese Subdomain angebunden:
+GitHub Pages ist über diese Subdomain angebunden:
 
 ```text
 klicktipp.xioo.de
@@ -87,6 +87,14 @@ Die DNS-Auflösung erfolgt bei IONOS über CNAME:
 ```text
 klicktipp.xioo.de -> xioo.github.io
 ```
+
+Die kanonische öffentliche URL ist:
+
+```text
+https://klicktipp.xioo.de/
+```
+
+`Enforce HTTPS` ist in GitHub Pages aktiv. HTTP-Aufrufe werden auf HTTPS umgeleitet.
 
 ## GitHub Pages
 
