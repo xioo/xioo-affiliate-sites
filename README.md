@@ -15,6 +15,39 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
   index.html
   grundlagenkurs/
     index.html
+  leads-generieren/
+    landingpage-ohne-programmierer/
+      index.html
+    leadmagnet-automatisch-ausliefern/
+      index.html
+    optin-formular-starten/
+      index.html
+    newsletter-empfehlungen/
+      index.html
+    sms-und-email-leads/
+      index.html
+  email-marketing/
+    newsletter-schneller-erstellen/
+      index.html
+    betreffzeilen-und-ki-copywriter/
+      index.html
+    email-zustellbarkeit-verbessern/
+      index.html
+    newsletter-analytics-verstehen/
+      index.html
+    dynamische-inhalte-personalisierung/
+      index.html
+  marketing-crm/
+    tags-statt-listenchaos/
+      index.html
+    kontakte-zentral-organisieren/
+      index.html
+    segmentierung-nach-interesse/
+      index.html
+    doppelte-kontakte-vermeiden/
+      index.html
+    kontakthistorie-und-leadvalue/
+      index.html
   follow-up-prozess/
     index.html
   follow-up-checkliste/
@@ -44,6 +77,7 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
     header.html
     footer.html
   scripts/
+    generate-suite-pages.py
     sync-shared-layout.py
   CNAME
   google1d032a5e65392c5c.html
@@ -65,6 +99,7 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
 10. Kanonische Kampagnen-URL für den ersten Follow-up-Test ist `https://klicktipp.xioo.de/follow-up-prozess/`.
 11. Google-Search-Console-Verifikationsdateien bleiben im Root, solange die Property aktiv ist.
 12. Header und Footer werden über `partials/` gepflegt und mit `scripts/sync-shared-layout.py` statisch in alle HTML-Seiten geschrieben.
+13. Die 15 Marketing-Suite-Guides werden über `scripts/generate-suite-pages.py` erzeugt und danach mit dem Shared-Layout synchronisiert.
 
 ## Website- und Design-Richtung
 
@@ -73,10 +108,17 @@ Die Seiten bilden eine zusammenhängende KlickTipp-Guide-Website, nicht einzelne
 Navigationsprinzip:
 
 1. alle öffentlichen Guide-Seiten sind über die obere Hauptnavigation erreichbar,
-2. jede Seite hat einen sichtbaren KlickTipp-CTA im Header,
-3. jede Seite verweist im Footer auf alle Guides und Rechtstexte,
-4. die Startseite bündelt die gesamte Guide-Struktur,
-5. Unterseiten bleiben thematisch fokussiert, führen aber in die Gesamtwebsite zurück.
+2. die obere Hauptnavigation führt in die Hauptbereiche `Start`, `Grundlagenkurs`, `Leads`, `E-Mail`, `CRM` und `Follow-up`,
+3. jede Seite hat einen sichtbaren KlickTipp-CTA im Header,
+4. jede Seite verweist im Footer auf alle Guides und Rechtstexte,
+5. die Startseite bündelt die gesamte Guide-Struktur,
+6. Unterseiten bleiben thematisch fokussiert, führen aber in die Gesamtwebsite zurück.
+
+Die neuen Marketing-Suite-Guides sind nach Kundenproblemen sortiert:
+
+1. `leads-generieren/` für Landingpages, Leadmagnete, Opt-in-Formulare, Empfehlungen sowie SMS- und E-Mail-Leads,
+2. `email-marketing/` für Newsletter-Erstellung, KI-Copywriting, Zustellbarkeit, Analytics und dynamische Inhalte,
+3. `marketing-crm/` für Tags, zentrale Kontakte, Segmentierung, Datenqualität und LeadValue.
 
 Das Layout ist hochwertig, sachlich und rasterbasiert:
 
@@ -99,9 +141,22 @@ Zentrale Layout-Bausteine:
 2. `partials/footer.html` für Footer-Navigation, Rechtstexte und Affiliate-Hinweis,
 3. `scripts/sync-shared-layout.py` für die statische Synchronisierung in alle Seiten.
 
+Marketing-Suite-Seiten:
+
+1. Inhalte und Metadaten der 15 neuen Bereichsseiten liegen in `scripts/generate-suite-pages.py`.
+2. Das Skript erzeugt die HTML-Dateien und aktualisiert die Sitemap.
+3. Danach muss `scripts/sync-shared-layout.py` ausgeführt werden.
+
 Nach Änderungen an Header oder Footer wird ausgeführt:
 
 ```bash
+python3 scripts/sync-shared-layout.py
+```
+
+Nach Änderungen an den Marketing-Suite-Guides wird ausgeführt:
+
+```bash
+python3 scripts/generate-suite-pages.py
 python3 scripts/sync-shared-layout.py
 ```
 
