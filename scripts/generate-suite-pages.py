@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-LASTMOD = "2026-06-03"
+LASTMOD = "2026-06-10"
 SITE = "https://klicktipp.xioo.de"
 SOCIAL_IMAGE = f"{SITE}/assets/img/social/klicktipp-guides-social.png?v=20260602-2"
 
@@ -486,6 +487,107 @@ def html_list(items: list[str], ordered: bool = False, class_name: str = "") -> 
     return f"          <{tag}{cls}>\n{body}\n          </{tag}>"
 
 
+def json_ld(data: dict) -> str:
+    return json.dumps(data, ensure_ascii=False, indent=6)
+
+
+def page_schema(page: dict) -> str:
+    area = AREAS[page["area"]]
+    url = page_url(page)
+    related = [
+        f"{SITE}/{area['dir']}/{item['slug']}/"
+        for item in related_pages(page)[:3]
+    ]
+    data = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "@id": f"{url}#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Start",
+                        "item": f"{SITE}/",
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": area["label"],
+                        "item": f"{SITE}/{area['dir']}/",
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": page["title"],
+                        "item": url,
+                    },
+                ],
+            },
+            {
+                "@type": "Article",
+                "@id": f"{url}#article",
+                "headline": page["title"],
+                "description": page["meta"],
+                "inLanguage": "de-DE",
+                "url": url,
+                "image": SOCIAL_IMAGE,
+                "datePublished": "2026-06-03",
+                "dateModified": LASTMOD,
+                "author": {
+                    "@type": "Organization",
+                    "name": "xioo",
+                    "url": SITE,
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "xioo",
+                    "url": SITE,
+                },
+                "isPartOf": {
+                    "@type": "WebSite",
+                    "name": "xioo KlickTipp Guides",
+                    "url": SITE,
+                },
+                "about": [area["label"], "KlickTipp", "E-Mail-Marketing"],
+                "mentions": related,
+            },
+            {
+                "@type": "FAQPage",
+                "@id": f"{url}#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Muss ich dafür schon ein großes System haben?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Nein. Der bessere Start ist ein kleiner, klarer Ablauf. Erst wenn dieser funktioniert, lohnt sich die nächste Automatisierungsstufe.",
+                        },
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Kann KlickTipp das Problem komplett allein lösen?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "KlickTipp kann wichtige Bausteine bereitstellen. Angebot, Zielgruppe, Texte, Einwilligung, Strategie und Bewertung musst Du trotzdem bewusst festlegen.",
+                        },
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Warum ist diese Seite ein Guide und nicht nur Werbung?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Weil Du vor dem Klick auf ein Tool verstehen solltest, welcher Prozess dahintersteht. Genau dieser Prozess macht den Einsatz von KlickTipp erst sinnvoll bewertbar.",
+                        },
+                    },
+                ],
+            },
+        ],
+    }
+    return json_ld(data)
+
+
 def render_page(page: dict) -> str:
     area = AREAS[page["area"]]
     root = href_to_root(Path(area["dir"]) / page["slug"] / "index.html")
@@ -521,6 +623,11 @@ def render_page(page: dict) -> str:
         </article>'''
         for index, (title, text) in enumerate(implementation, 1)
     )
+    fit_checks = [
+        "Passt, wenn genau dieses Problem regelmäßig auftritt und nicht nur einmalig gelöst werden muss.",
+        "Passt nicht, wenn Du noch kein klares Angebot, keine erlaubte Kontaktaufnahme oder keinen sinnvollen nächsten Schritt hast.",
+        "Messpunkt: Prüfe nach 14 Tagen, ob Kontakte den nächsten Schritt wirklich auslösen, anklicken oder beantworten.",
+    ]
     return f'''<!doctype html>
 <html lang="de">
   <head>
@@ -547,6 +654,9 @@ def render_page(page: dict) -> str:
     <meta name="twitter:image" content="{SOCIAL_IMAGE}">
     <meta name="twitter:image:alt" content="{page["title"]}">
     <meta name="xioo-goatcounter-endpoint" content="https://xioo.goatcounter.com/count">
+    <script type="application/ld+json">
+{page_schema(page)}
+    </script>
     <link rel="stylesheet" href="{root}assets/css/styles.css">
     <script defer src="{root}assets/js/analytics.js"></script>
   </head>
@@ -624,6 +734,14 @@ def render_page(page: dict) -> str:
         </div>
       </section>
 
+      <section class="section band-section">
+        <div>
+          <p class="eyebrow">xioo-Prüfraster</p>
+          <h2>So entscheidest Du, ob dieser KlickTipp-Baustein Priorität hat.</h2>
+{html_list(fit_checks)}
+        </div>
+      </section>
+
       <section class="section feature-grid" aria-label="Weitere Guides">
 {related_cards}
       </section>
@@ -673,6 +791,7 @@ def write_pages() -> None:
 def write_sitemap() -> None:
     existing = [
         ("/", "1.0", "https://klicktipp.xioo.de/assets/img/social/klicktipp-guides-social.png?v=20260602-2", "KlickTipp Guides für Follow-up, Leads und E-Mail-Marketing"),
+        ("/ueber-xioo/", "0.6", "https://klicktipp.xioo.de/assets/img/social/klicktipp-guides-social.png?v=20260602-2", "Über xioo KlickTipp Guides"),
         ("/grundlagenkurs/", "0.9", "https://klicktipp.xioo.de/assets/img/social/grundlagenkurs-social.png?v=20260603-1", "KlickTipp Grundlagenkurs als Start-Guide"),
         ("/follow-up-prozess/", "0.9", "https://klicktipp.xioo.de/assets/img/social/follow-up-system-social.png?v=20260602-2", "Follow-up-System mit KlickTipp aufbauen"),
         ("/follow-up-checkliste/", "0.8", "https://klicktipp.xioo.de/assets/img/social/follow-up-checkliste-social.png?v=20260602-2", "Follow-up-Checkliste für den KlickTipp-Start"),
@@ -720,7 +839,11 @@ def write_sitemap() -> None:
             "  </url>",
         ])
     entries.append("</urlset>")
-    (ROOT / "sitemap.xml").write_text("\n".join(entries) + "\n", encoding="utf-8")
+    sitemap = "\n".join(entries) + "\n"
+    (ROOT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+    legacy_dir = ROOT / "xioo-affiliate-sites"
+    legacy_dir.mkdir(exist_ok=True)
+    (legacy_dir / "sitemap.xml").write_text(sitemap, encoding="utf-8")
 
 
 def main() -> None:

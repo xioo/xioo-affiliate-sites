@@ -13,6 +13,8 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
 ```text
 /
   index.html
+  ueber-xioo/
+    index.html
   grundlagenkurs/
     index.html
   leads-generieren/
@@ -83,6 +85,8 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
   google1d032a5e65392c5c.html
   robots.txt
   sitemap.xml
+  xioo-affiliate-sites/
+    sitemap.xml
 ```
 
 ## Regeln
@@ -100,6 +104,8 @@ Andere Partnerprogramme, Produktkandidaten, Backlogs und interne Bewertungen geh
 11. Google-Search-Console-Verifikationsdateien bleiben im Root, solange die Property aktiv ist.
 12. Header und Footer werden über `partials/` gepflegt und mit `scripts/sync-shared-layout.py` statisch in alle HTML-Seiten geschrieben.
 13. Die 15 Marketing-Suite-Guides werden über `scripts/generate-suite-pages.py` erzeugt und danach mit dem Shared-Layout synchronisiert.
+14. Der alte Search-Console-Sitemap-Pfad `xioo-affiliate-sites/sitemap.xml` bleibt als kompatible Kopie der Hauptsitemap bestehen.
+15. Strukturierte Daten werden nur für semantische Einordnung genutzt; sie ersetzen keine inhaltliche Qualität und garantieren keine Google-Indexierung.
 
 ## Website- und Design-Richtung
 
@@ -113,6 +119,7 @@ Navigationsprinzip:
 4. jede Seite verweist im Footer auf alle Guides und Rechtstexte,
 5. die Startseite bündelt die gesamte Guide-Struktur,
 6. Unterseiten bleiben thematisch fokussiert, führen aber in die Gesamtwebsite zurück.
+7. `ueber-xioo/` erklärt Redaktion, Grenzen, Affiliate-Rolle und Prüflogik der Website.
 
 Die neuen Marketing-Suite-Guides sind nach Kundenproblemen sortiert:
 
@@ -145,7 +152,8 @@ Marketing-Suite-Seiten:
 
 1. Inhalte und Metadaten der 15 neuen Bereichsseiten liegen in `scripts/generate-suite-pages.py`.
 2. Das Skript erzeugt die HTML-Dateien und aktualisiert die Sitemap.
-3. Danach muss `scripts/sync-shared-layout.py` ausgeführt werden.
+3. Das Skript schreibt zusätzlich eine kompatible Sitemap unter `xioo-affiliate-sites/sitemap.xml`, weil dieser alte Pfad in der Google Search Console eingereicht wurde.
+4. Danach muss `scripts/sync-shared-layout.py` ausgeführt werden.
 
 Nach Änderungen an Header oder Footer wird ausgeführt:
 
@@ -195,7 +203,29 @@ Die Sitemap liegt unter:
 https://klicktipp.xioo.de/sitemap.xml
 ```
 
+Kompatibler alter Search-Console-Pfad:
+
+```text
+https://klicktipp.xioo.de/xioo-affiliate-sites/sitemap.xml
+```
+
+Beide Dateien enthalten denselben URL-Bestand. Die Hauptsitemap bleibt die kanonische Sitemap, der alte Pfad dient nur dazu, den früheren Search-Console-Abruffehler zu entschärfen.
+
 Die zusätzlichen SEO-Einstiegsseiten führen intern auf die zentrale Follow-up-Seite, den Grundlagenkurs-Guide und die übrigen Guides zurück. Die Website bleibt auf KlickTipp als Partnerprogramm verengt und wird nicht um andere Partnerprogramme erweitert.
+
+## Indexierungsverbesserungen
+
+Seit `xioo-0049` wurden zusätzliche Indexierungs- und Qualitätssignale ergänzt:
+
+1. eigene Seite `ueber-xioo/` für redaktionelle Einordnung, Grenzen und Affiliate-Abgrenzung,
+2. strukturierte Daten für Startseite, Hauptguides, Marketing-Suite-Guides und Über-Seite,
+3. Breadcrumb-, Article-, FAQ- und ItemList-Daten, wo sie zum sichtbaren Inhalt passen,
+4. sichtbares xioo-Prüfraster auf den Marketing-Suite-Guides,
+5. zusätzliche Entscheidungshilfen auf Startseite, Follow-up-Seite und Grundlagenkurs,
+6. Aktualisierung der Sitemap-`lastmod`-Werte auf `2026-06-10`,
+7. kompatible Legacy-Sitemap für den alten Search-Console-Pfad.
+
+Wichtig: Diese Änderungen beseitigen technische und inhaltliche Schwächen, garantieren aber keine Indexierung. Die URL-Prüfung und Indexierungsanfrage in Google Search Console bleiben manuelle Folgeschritte.
 
 ## Grundlagenkurs-Seite
 
