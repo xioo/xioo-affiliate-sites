@@ -28,6 +28,7 @@ FOOTER_GROUPS = [
         "Start",
         [
             ("Startseite", ""),
+            ("Über xioo", "ueber-xioo/"),
             ("Grundlagenkurs", "grundlagenkurs/"),
             ("Follow-up-System", "follow-up-prozess/"),
             ("Follow-up-Checkliste", "follow-up-checkliste/"),
@@ -69,6 +70,7 @@ FOOTER_GROUPS = [
 
 PAGES = {
     "index.html": "Start",
+    "ueber-xioo/index.html": None,
     "grundlagenkurs/index.html": "Grundlagenkurs",
     "follow-up-prozess/index.html": "Follow-up",
     "follow-up-checkliste/index.html": "Follow-up",
